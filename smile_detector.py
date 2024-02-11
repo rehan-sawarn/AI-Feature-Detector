@@ -24,18 +24,18 @@ while True:
         #draw a rectangle around the face
         cv2.rectangle(frame, (x,y), (x+w, y+h), (100,200,50), 4)
     
-    #get the sub frame 
-    the_face = frame[y:y+h, x:x+w] 
+        #get the sub frame 
+        the_face = frame[y:y+h, x:x+w] 
 
-    #Change just the face to grayscale
-    face_grayscale = cv2.cvtColor(the_face, cv2.COLOR_BGR2GRAY)
+        #Change just the face to grayscale
+        face_grayscale = cv2.cvtColor(the_face, cv2.COLOR_BGR2GRAY)
     
-    #Detect smiles in the face
-    smiles = smile_detector.detectMultiScale(face_grayscale, scaleFactor=1.7, minNeighbors=20)
+        #Detect smiles in the face
+        smiles = smile_detector.detectMultiScale(face_grayscale, scaleFactor=1.7, minNeighbors=20)
 
-    for (x,y,w,h) in smiles:
-        #draw a rectangle around the face
-        cv2.rectangle(the_face, (x,y), (x+w, y+h), (50,50,200), 4)    
+        for (x_,y_,w_,h_) in smiles:
+            #draw a rectangle around the face
+            cv2.rectangle(the_face, (x_,y_), (x_+w_, y_+h_), (50,50,200), 4)    
 
     #show the image
     cv2.imshow('Smile Detector', frame)
